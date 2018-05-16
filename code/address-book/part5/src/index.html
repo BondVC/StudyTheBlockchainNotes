@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>My Decentralized Address Book</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/utility.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+
+    <div class="container">
+        <h1>My decentralized address book</h1>
+
+        <!-- https://getbootstrap.com/docs/4.1/layout/grid/ -->
+        <div class="row">
+            <div class="col-md-4">
+                <h2>My only friend</h2>
+
+                <hr>
+
+                <div id="errors"></div>
+
+                <form>
+                    <label for="first_name" class="control-label">First Name</label>
+                    <input id="first_name" type="text">
+
+                    <br><br>
+
+                    <label for="last_name" class="control-label">Last Name</label>
+                    <input id="last_name" type="text">
+
+                    <br><br>
+
+                    <label for="email_address" class="control-label">Email</label>
+                    <input id="email_address" type="text">
+
+                    <br><br>
+
+                    <label for="phone_number" class="control-label">Phone</label>
+                    <input id="phone_number" type="text">
+
+                    <br><br>
+
+                    <label for="work_address" class="control-label">Work Address</label>
+                    <input id="work_address" type="text">
+
+                    <br><br>
+
+                    <label for="where_we_met" class="control-label">Where we met</label>
+                    <input id="where_we_met" type="text">
+
+                    <br><br>
+
+                    <label for="notes" class="control-label">Notes</label>
+                    <input id="notes" type="text">
+
+                    <br><br>
+
+                    <label for="date_we_met" class="control-label">Date we met</label>
+                    <input id="date_we_met" type="text">
+
+                    <br><br>
+
+                    <button id="submitContact">Update Address Book</button>
+                </form>
+            </div>
+
+            <div class="col-md-8">
+                <div id="transactions">
+
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app1.js"></script>
+  </body>
+</html>

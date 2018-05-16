@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="../bower_components/web3/dist/web3.min.js"></script>
+
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>My decentralized address book</h1>
+
+        <h2>My only friend</h2>
+
+        <hr>
+
+        <form>
+            <label for="first_name" class="col-lg-2 control-label">First Name</label>
+            <input id="first_name" type="text">
+
+            <br><br>
+
+            <label for="last_name" class="col-lg-2 control-label">Last Name</label>
+            <input id="last_name" type="text">
+
+            <br><br>
+
+            <label for="email_address" class="col-lg-2 control-label">Email</label>
+            <input id="email_address" type="text">
+
+            <br><br>
+
+            <label for="phone_number" class="col-lg-2 control-label">Phone</label>
+            <input id="phone_number" type="text">
+
+            <br><br>
+
+            <label for="work_address" class="col-lg-2 control-label">Work Address</label>
+            <input id="work_address" type="text">
+
+            <br><br>
+
+            <label for="where_we_met" class="col-lg-2 control-label">Where we met</label>
+            <input id="where_we_met" type="text">
+
+            <br><br>
+
+            <label for="notes" class="col-lg-2 control-label">Notes</label>
+            <input id="notes" type="text">
+
+            <br><br>
+
+            <label for="date_we_met" class="col-lg-2 control-label">Date we met</label>
+            <input id="date_we_met" type="text">
+
+            <br><br>
+
+            <label for="one" class="col-lg-2 control-label">One</label>
+            <input id="one" type="text">
+
+            <br><br>
+
+            <button id="button">Update Address Book</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+
+    <script>
+
+       if (typeof web3 !== 'undefined') {
+            // how would web3 be defined?
+            // because of
+            // METAMASK (ethereum chrome extension) / MIST (ethereum browser)
+
+                //then the provider is automatically injected into the javascript context that we can use
+
+            // basically end user ethereum
+
+            // both metamask (chrome extension) and mist inject a web3 client into the DOM of every page visited.
+
+            // we're not using either at this point, because we're using ganache client at localhost:7545
+
+            web3 = new Web3(web3.currentProvider);
+        } else {
+            // set the provider you want from Web3.providers
+            web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+        }
+
+        //we're choosing the first account that ETHEREUM-TESTRPC provides us after we ran testrpc
+        web3.eth.defaultAccount = web3.eth.accounts[0];
+
+        //if you change line 68 to web3.eth.accounts[2]; setInstructor won't work because the owner is 0 and we have a function modifier on the contract to say that only the owner can run setInstructor, so only 0 not 2
+        // web3.eth.defaultAccount = web3.eth.accounts[2];
+
+        // we need to use the eth contract method to initialize (create) the contract on an address
+        // this accepts one parameter, an abi or application binary interface
+        // this abi allows you to call functions and receive data from your smart contract (it's an interface)
+        // you can find your abi by going to the remix ide, clicking on compile, clicking on details and scrolling down. you can copy it from there
+        var Web3ContractABI = web3.eth.contract([ { "constant": true, "inputs": [], "name": "date_we_met", "outputs": [ { "name": "", "type": "string" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "email_address", "outputs": [ { "name": "", "type": "string" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "first_name", "outputs": [ { "name": "", "type": "string" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "last_name", "outputs": [ { "name": "", "type": "string" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "notes", "outputs": [ { "name": "", "type": "string" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "phone_number", "outputs": [ { "name": "", "type": "string" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "where_we_met", "outputs": [ { "name": "", "type": "string" } ], "payable": false, "stateMutability": "view", "type": "function" }, { "constant": true, "inputs": [], "name": "work_address", "outputs": [ { "name": "", "type": "string" } ], "payable": false, "stateMutability": "view", "type": "function" } ]);
+
+        //define the contract address
+        var contract = Web3ContractABI.at('0x156a4a3446b979e3c8af4fff438bc68262ca32ce');
+        console.log(contract);
+
+        //how to call public variables
+        contract.first_name.call(function(err, res){
+            $('#first_name').val(res);
+        });
+
+        contract.last_name.call(function(err, res){
+            $('#last_name').val(res);
+        });
+
+        contract.phone_number.call(function(err, res){
+            $('#phone_number').val(res);
+        });
+
+        contract.where_we_met.call(function(err, res){
+            $('#where_we_met').val(res);
+        });
+
+        contract.work_address.call(function(err, res){
+            $('#work_address').val(res);
+        });
+
+        contract.notes.call(function(err, res){
+            $('#notes').val(res);
+        });
+
+        contract.date_we_met.call(function(err, res){
+            $('#date_we_met').val(res);
+        });
+
+        contract.email_address.call(function(err, res){
+            $('#email_address').val(res);
+        });
+
+        contract.one.call(function(err, res) {
+            $('#one').val(res);
+        })
+    </script>
+
+</body>
+
+</html>

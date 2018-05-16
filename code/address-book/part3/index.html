@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <h1>My decentralized address book</h1>
+
+        <h2>My only friend</h2>
+
+        <hr>
+
+        <div id="errors"></div>
+        
+        <form>
+            <label for="first_name" class="col-lg-2 control-label">First Name</label>
+            <input id="first_name" type="text">
+            
+            <br><br>
+
+            <label for="last_name" class="col-lg-2 control-label">Last Name</label>
+            <input id="last_name" type="text">
+
+            <br><br>
+
+            <label for="email_address" class="col-lg-2 control-label">Email</label>
+            <input id="email_address" type="text">
+            
+            <br><br>
+
+            <label for="phone_number" class="col-lg-2 control-label">Phone</label>
+            <input id="phone_number" type="text">
+
+            <br><br>
+
+            <label for="work_address" class="col-lg-2 control-label">Work Address</label>
+            <input id="work_address" type="text">
+
+            <br><br>
+
+            <label for="where_we_met" class="col-lg-2 control-label">Where we met</label>
+            <input id="where_we_met" type="text">
+
+            <br><br>
+
+            <label for="notes" class="col-lg-2 control-label">Notes</label>
+            <input id="notes" type="text">
+
+            <br><br>
+
+            <label for="date_we_met" class="col-lg-2 control-label">Date we met</label>
+            <input id="date_we_met" type="text">
+
+            <br><br>
+            
+            <button id="submitContact">Update Address Book</button>
+        </form>
+    </div>
+
+    <script src="../bower_components/web3/dist/web3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="abi-contract-addr.js"></script>
+    <script src="app.js"></script>
+
+
+</body>
+
+</html>

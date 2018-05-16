@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Donation DApp</title>
+    <!-- Bootstrap -->
+    <link rel="stylesheet" type="text/css" href="css/utility.css">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="bottom-margin-50">Donation DApp</h1>
+        
+        <div id="errors" class="bottom-margin-50"></div>
+
+
+        <div id="contractDetails">
+            <div id="donatorContainer" class="bottom-margin-50">
+                <h2>Donators</h2>
+
+                <ul id="donators"></ul>
+            </div>
+
+            <div id="balanceContainer" class="bottom-margin-50">
+                <h2>Contract Balance</h2>
+
+                <span id="balance"></span> <span>&nbsp;ETH</span>
+            </div>
+        </div>
+
+        <div id="yourAddress" class="bottom-margin-50">            
+        </div>
+
+        <div id="yourETHAmount" class="bottom-margin-50">
+            <span>&nbsp;ETH</span>
+        </div>
+
+        <div id="owner" class="bottom-margin-50">
+            <span><strong>The Owner of the contract:&nbsp;</strong></span>
+
+            <span id="ownerAddress"></span>
+        </div>
+
+        <div id="donationContainer" class="row bottom-margin-50">
+            <div class="col-md-4" id="donationInput">
+                <input type="text" id="donationAmount" placeholder="how much do you want to donate?"  class="width-225">
+                <button id="makeDonation">Donate this amount</button>
+            </div>
+            <div class="col-md-8" id="donationInfo">
+
+            </div>
+        </div>
+
+        <div id="ownerSees" class="hide row bottom-margin-50">
+            <div class="col-md-4">
+                <div>
+                    <input type="text" id="transferToAddress" placeholder="address to transfer to" class="width-225">
+                    <button id="transferOwnership">Transfer Ownership Of Contract</button>
+                </div>
+            </div>
+            <div class="col-md-8" id="ownerSeesAdditionalInfo">
+                
+            </div>
+        </div>
+
+        <!-- https://getbootstrap.com/docs/4.1/layout/grid/ -->
+        <div class="row bottom-margin-50">
+            <div class="col-md-12" id="transactions">
+            </div>
+        </div>
+
+
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/web3.min.js"></script>
+    <script src="js/truffle-contract.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
